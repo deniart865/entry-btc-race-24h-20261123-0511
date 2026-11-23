@@ -20,9 +20,12 @@ halts new entries. ONE-LOSS BUDGET: after one round trip closed at a
 loss the bot stops opening new positions for the rest of the window.
 That single rule is what keeps flat/down windows from bleeding the bot
 dry through repeated false signals (measured: it cuts the loss on the
--4.00% window from -$45.33 to -$15.78 and on the -2.80% window from
+-4.00% window from -$45.33 to -$19.12 and on the -2.80% window from
 -$20.96 for buy-and-hold to -$7.79, while leaving the winning window
-untouched at +$31.09). Every order caps slippage at 150 bps from the
+untouched at +$31.09; the -225 bps trail was chosen over -200 bps on the
+four-window tie-break: same +$31.09 on this window, -$2.90 instead of
+-$12.45 on the flat +0.49% window, at the cost of -$19.12 instead of
+-$15.78 on the -4.00% window). Every order caps slippage at 150 bps from the
 latest close.
 
 All decisions use exact integer arithmetic on quote units (no floats in
